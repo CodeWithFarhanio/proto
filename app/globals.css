@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #000000;
   --foreground: #171717;
 }
 
@@ -23,4 +23,212 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}@media (pointer: fine) {
+
+  /* Hide browser cursor */
+  html,
+  body,
+  * {
+    /* cursor: none !important; */
+  }
+
+  /* =========================
+     MAIN DOT
+  ========================= */
+
+  .pro-cursor {
+    position: fixed;
+
+    width: 6px;
+    height: 6px;
+
+    left: 0;
+    top: 0;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: white;
+
+    pointer-events: none;
+
+    z-index: 999999;
+
+    box-shadow:
+      0 0 8px rgba(255,255,255,0.9),
+      0 0 25px rgba(139,92,246,0.8);
+
+    transition:
+      width 0.2s ease,
+      height 0.2s ease;
+  }
+
+
+  /* =========================
+     GLASS FOLLOWER
+  ========================= */
+
+  .pro-cursor-follower {
+
+    position: fixed;
+
+    width: 42px;
+    height: 42px;
+
+    left: 0;
+    top: 0;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 999998;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255,255,255,0.35);
+
+    background:
+      radial-gradient(
+        circle at 30% 30%,
+        rgba(255,255,255,0.12),
+        rgba(139,92,246,0.08),
+        rgba(0,0,0,0)
+      );
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    box-shadow:
+      0 0 20px rgba(139,92,246,0.12);
+
+    transition:
+      width 0.35s cubic-bezier(.22,1,.36,1),
+      height 0.35s cubic-bezier(.22,1,.36,1),
+      border-color 0.35s ease,
+      background 0.35s ease,
+      box-shadow 0.35s ease;
+  }
+
+
+  /* =========================
+     HOVER
+  ========================= */
+
+  .pro-cursor-follower.cursor-active {
+
+    width: 68px;
+    height: 68px;
+
+    border-color:
+      rgba(167,139,250,0.7);
+
+    background:
+      radial-gradient(
+        circle,
+        rgba(139,92,246,0.18),
+        rgba(139,92,246,0.05),
+        transparent
+      );
+
+    box-shadow:
+      0 0 25px rgba(139,92,246,0.25),
+      0 0 60px rgba(139,92,246,0.12);
+  }
+
+
+  /* =========================
+     VIEW / OPEN CURSOR
+  ========================= */
+
+  .pro-cursor-follower.cursor-view {
+
+    width: 82px;
+    height: 82px;
+
+    background:
+      rgba(139,92,246,0.12);
+
+    border-color:
+      rgba(196,181,253,0.85);
+
+    box-shadow:
+      0 0 30px rgba(139,92,246,0.3),
+      0 0 80px rgba(139,92,246,0.15);
+  }
+
+
+  .pro-cursor-follower span {
+
+    font-family:
+      Arial,
+      Helvetica,
+      sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+
+    color: white;
+
+    opacity: 0;
+
+    transform: scale(0.7);
+
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease;
+  }
+
+
+  .pro-cursor-follower.cursor-view span {
+
+    opacity: 1;
+
+    transform: scale(1);
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (pointer: coarse) {
+
+  .pro-cursor,
+  .pro-cursor-follower {
+    display: none !important;
+  }
+
+}
+
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #af67ee66;
+  border-radius: 999px;
+  border: 1px solid rgba(170, 103, 238, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b667eeb3;
 }
