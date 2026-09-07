@@ -41,14 +41,17 @@ const skills = [
 
 export default function Expertise() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#08101a] px-8 py-[70px] pb-[120px] text-white">
+    <main className="relative min-h-screen overflow-hidden px-8 py-[70px] pb-[120px] text-black/90">
+
+ <div className="pointer-events-none absolute left-[25%] top-0 h-[1px] w-[50%] bg-gradient-to-r from-transparent via-black/50 to-transparent" />
 
       {/* BACKGROUND GRID */}
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:80px_80px] [mask-image:linear-gradient(to_bottom,black_10%,rgba(0,0,0,.7)_50%,transparent_100%)]" />
+      
 
       {/* SECTION LABEL */}
-      <div className="relative z-10 mb-[70px] flex items-center gap-[14px] font-sans text-[11px] font-bold tracking-[2px] text-[#686868]">
-        <span className="text-[#d0d0d0]">03</span>
+      <div className="relative z-10 mb-[70px] flex items-center gap-[14px] font-sans text-[11px] font-bold tracking-[2px] text-black/70">
+        <span className="text-[#000000]">03</span>
         <span>—</span>
         <span>EXPERTISE</span>
       </div>
@@ -67,8 +70,8 @@ export default function Expertise() {
             transition={{ duration: 0.7 }}
             className="mb-[60px] flex flex-col font-sans text-[clamp(65px,7vw,110px)] font-extrabold leading-[.82] tracking-[-6px] max-[650px]:mb-[40px] max-[650px]:text-[clamp(58px,17vw,90px)] max-[650px]:tracking-[-4px]"
           >
-            <span className="text-[#303030]">MY</span>
-            <strong className="text-[#f5f5f5]">EXPERTISE</strong>
+            <span className="text-[#aa0000]">MY</span>
+            <strong className="text-black/90">EXPERTISE</strong>
           </motion.h1>
 
           {/* MAIN PARAGRAPH */}
@@ -80,17 +83,17 @@ export default function Expertise() {
               delay: 0.15,
               duration: 0.7,
             }}
-            className="mb-[65px] max-w-[570px] font-sans text-[24px] leading-[1.45] text-[#d6d6d6] max-[650px]:mb-[40px] max-[650px]:text-[19px]"
+            className="mb-[65px] max-w-[570px] font-sans text-[24px] leading-[1.45] text-black/90 max-[650px]:mb-[40px] max-[650px]:text-[19px]"
           >
             I design and build digital experiences where{" "}
-            <b className="font-semibold text-[#e5c48b]">
+            <b className="font-semibold text-[#aa0000]">
               design, code and motion
             </b>{" "}
             work as one.
           </motion.p>
 
           {/* SMALL PARAGRAPH */}
-          <p className="mb-[35px] max-w-[570px] font-sans text-[14px] leading-[1.7] text-[#737373] max-[650px]:text-[13px]">
+          <p className="mb-[35px] max-w-[570px] text-[14px] leading-[1.7] text-black/70 max-[650px]:text-[13px]">
             From expressive interfaces to smooth interactions, I combine
             frontend engineering with visual design to create digital
             experiences that feel modern and intentional.
@@ -101,7 +104,7 @@ export default function Expertise() {
             {["HTML", "CSS", "JAVASCRIPT", "GSAP", "REACT"].map((item) => (
               <span
                 key={item}
-                className="border border-[#222] bg-white/[0.015] px-3 py-2 font-sans text-[8px] font-semibold tracking-[1px] text-[#666] transition-all duration-300 hover:border-[#444] hover:bg-white/[0.04] hover:text-[#ddd]"
+                className="border border-[#222] bg-white/[0.015] px-3 py-2 font-sans text-[8px] font-semibold tracking-[1px] text-black/90 transition-all duration-300 hover:border-[#444] hover:bg-white/[0.04] hover:text-[#aa0000]"
               >
                 {item}
               </span>
@@ -136,12 +139,12 @@ export default function Expertise() {
             >
 
               {/* NUMBER */}
-              <div className="self-start pt-[35px] font-sans text-[11px] text-[#555] max-[650px]:pt-[28px] max-[650px]:text-[9px]">
+              <div className="flex h-full w-[50px] items-center self-start  font-sans text-[11px] text-black/90 max-[650px]:pt-[28px] max-[650px]:text-[9px]">
                 {skill.number}
               </div>
 
               {/* ICON */}
-              <div className="flex h-[50px] w-[50px] items-center justify-center border border-[#292929] font-sans text-[20px] text-[#aaa] transition-all duration-300 group-hover:rotate-[-4deg] group-hover:border-[#555] group-hover:text-white max-[650px]:h-[42px] max-[650px]:w-[42px] max-[650px]:text-[17px]">
+              <div className="flex h-[50px] w-[50px] items-center justify-center border border-[#292929] font-sans text-[20px] text-[#000000] transition-all duration-300 group-hover:rotate-[-4deg] group-hover:border-[#aa0000] group-hover:text-[#aa0000] max-[650px]:h-[42px] max-[650px]:w-[42px] max-[650px]:text-[17px]">
                 {skill.icon}
               </div>
 
@@ -151,23 +154,23 @@ export default function Expertise() {
                 
 
                 {/* TITLE */}
-                <h2 className="mb-[7px] font-sans text-[28px] font-medium leading-none tracking-[-1px] text-[#f2f2f2] max-[650px]:text-[20px]">
+                <h2 className="mb-[7px] font-sans text-[28px] font-medium leading-none tracking-[-1px] text-[#aa0000] max-[650px]:text-[20px]">
                   {skill.title}
                 </h2>
 
                 {/* DESCRIPTION */}
-                <p className="max-w-[600px] font-sans text-[13px] leading-[1.5] text-[#555] max-[650px]:text-[11px]">
+                <p className="max-w-[600px] font-sans text-[13px] leading-[1.5] text-black/70 max-[650px]:text-[11px]">
                   {skill.description}
                 </p>
 
                 {/* META */}
-                <div className="mt-[13px] font-sans text-[8px] font-semibold tracking-[1px] text-[#4a4a4a] max-[650px]:mt-[10px] max-[650px]:text-[7px]">
+                <div className="mt-[13px] font-sans text-[8px] font-semibold tracking-[1px] text-black/90 max-[650px]:mt-[10px] max-[650px]:text-[7px]">
                   {skill.meta}
                 </div>
               </div>
 
               {/* ARROW */}
-              <div className="font-sans text-[20px] text-[#777] transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-white max-[650px]:hidden">
+              <div className="font-sans text-[20px] text-black/90 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-[#aa0000] max-[650px]:hidden">
                 ↗
               </div>
 

@@ -1,255 +1,225 @@
-// "use client";
+"use client";
 
-// import { motion, useScroll, useTransform } from "framer-motion";
-// import { useRef } from "react";
-// import {
-//   Code2,
-//   Palette,
-//   Sparkles,
-//   Server,
-//   Rocket,
-// } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { anton } from "../components/Anton";
 
-// export default function Project() {
-//   const sectionRef = useRef(null);
+export default function Project() {
+  const text = "PROJECTS";
+  const sectionRef = useRef(null);
 
-//   const { scrollYProgress } = useScroll({
-//     target: sectionRef,
-//     offset: ["start start", "end end"],
-//   });
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end end"],
+  });
 
-//   const x = useTransform(
-//     scrollYProgress,
-//     [0, 1],
-//     ["0%", "-72%"]
-//   );
+  /* =========================
+     CONTAINER 1
+  ========================= */
 
-//   const cards = [
-//     {
-//       number: "01",
-//       title: "Web Development",
-//       description:
-//         "Building modern, responsive and high-performance websites with clean and scalable code.",
-//       skills: ["HTML", "CSS", "JavaScript", "Next.js"],
-//       icon: Code2,
-//     },
-//     {
-//       number: "02",
-//       title: "UI / UX Design",
-//       description:
-//         "Creating clean and intuitive interfaces with strong visual hierarchy and responsive layouts.",
-//       skills: ["UI Design", "UX", "Responsive", "Layouts"],
-//       icon: Palette,
-//     },
-//     {
-//       number: "03",
-//       title: "Motion & Interaction",
-//       description:
-//         "Adding smooth animations and interactive experiences that make websites feel alive.",
-//       skills: ["Framer Motion", "Scroll", "Hover", "Transitions"],
-//       icon: Sparkles,
-//     },
-//     {
-//       number: "04",
-//       title: "Backend Development",
-//       description:
-//         "Developing APIs, authentication systems and database-driven applications.",
-//       skills: ["Node.js", "Express", "MongoDB", "Mongoose"],
-//       icon: Server,
-//     },
-//     {
-//       number: "05",
-//       title: "Deployment",
-//       description:
-//         "Taking projects from development to production with reliable deployment workflows.",
-//       skills: ["Vercel", "Git", "GitHub", "Production"],
-//       icon: Rocket,
-//     },
-//   ];
+  const container1X = useTransform(
+    scrollYProgress,
+    [0.2, 0.45],
+    ["0%", "-100%"]
+  );
 
-//   return (
-//     <main className="bg-black text-white">
-//       <section
-//         ref={sectionRef}
-//         className="relative h-[500vh]"
-//       >
-//         {/* Sticky screen */}
-//         <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+  const container1Opacity = useTransform(
+    scrollYProgress,
+    [0.3, 0.45],
+    [1, 0]
+  );
 
-//           {/* Heading */}
-//           <div className="absolute left-6 top-10 z-20 sm:left-10 lg:left-16">
-//             <div className="mb-4 flex items-center gap-4">
-//               <span className="h-px w-12 bg-[#d8bd76] sm:w-20" />
+  const container1Scale = useTransform(
+    scrollYProgress,
+    [0.2, 0.45],
+    [1, 0.9]
+  );
 
-//               <span className="text-xs uppercase tracking-[0.35em] text-white/40">
-//                 What I Do
-//               </span>
-//             </div>
+  /* =========================
+     CONTAINER 2
+  ========================= */
 
-//             <h2 className="text-5xl font-semibold uppercase tracking-tight sm:text-6xl md:text-7xl">
-//               My{" "}
-//               <span className="text-[#d8bd76]">
-//                 Expertise
-//               </span>
-//             </h2>
-//           </div>
+  const container2X = useTransform(
+    scrollYProgress,
+    [0.25, 0.5],
+    ["100%", "0%"]
+  );
 
-//           {/* Cards */}
-//           <motion.div
-//             style={{ x }}
-//             className="flex gap-6 pl-[8vw] pr-[10vw]"
-//           >
-//             {cards.map((card) => {
-//               const Icon = card.icon;
+  const container2Opacity = useTransform(
+    scrollYProgress,
+    [0.3, 0.45],
+    [0, 1]
+  );
 
-//               return (
-//                 <article
-//                   key={card.number}
-//                   className="
-//                     group relative
-//                     flex h-[62vh] w-[78vw]
-//                     flex-shrink-0
-//                     flex-col justify-between
-//                     overflow-hidden
-//                     rounded-[2rem]
-//                     border border-white/10
-//                     bg-white/[0.035]
-//                     p-7
-//                     backdrop-blur-xl
-//                     transition-all duration-500
-//                     hover:border-[#d8bd76]/50
-//                     sm:w-[550px]
-//                     sm:p-10
-//                   "
-//                 >
+  const container2Scale = useTransform(
+    scrollYProgress,
+    [0.25, 0.5],
+    [0.9, 1]
+  );
 
-//                   {/* Background glow */}
-//                   <div
-//                     className="
-//                       pointer-events-none
-//                       absolute -right-32 -top-32
-//                       h-72 w-72
-//                       rounded-full
-//                       bg-[#d8bd76]/10
-//                       blur-3xl
-//                       opacity-0
-//                       transition-opacity duration-700
-//                       group-hover:opacity-100
-//                     "
-//                   />
+  /* =========================
+     PROJECTS
+  ========================= */
 
-//                   {/* Top */}
-//                   <div className="relative flex items-start justify-between">
+  const projectsY = useTransform(
+    scrollYProgress,
+    [0.55, 1],
+    ["0%", "-55%"]
+  );
 
-//                     <div
-//                       className="
-//                         flex h-16 w-16
-//                         items-center justify-center
-//                         rounded-full
-//                         border border-white/10
-//                         text-white/50
-//                         transition-all duration-500
-//                         group-hover:border-[#d8bd76]
-//                         group-hover:text-[#d8bd76]
-//                       "
-//                     >
-//                       <Icon
-//                         size={26}
-//                         strokeWidth={1.4}
-//                       />
-//                     </div>
+  return (
+    <main className="text-white">
+      <section ref={sectionRef} className="relative h-[400vh]">
+        <div className="sticky top-0 h-screen overflow-hidden">
 
-//                     <span className="text-sm tracking-[0.3em] text-white/25">
-//                       {card.number}
-//                     </span>
-//                   </div>
+          {/* =========================
+              CONTAINER 1
+          ========================= */}
 
-//                   {/* Middle */}
-//                   <div className="relative">
+          <motion.div
+            style={{
+              x: container1X,
+              opacity: container1Opacity,
+              scale: container1Scale,
+            }}
+            className="absolute inset-0 z-10 flex h-screen w-screen items-center justify-center"
+          >
+            <div className="flex items-center justify-center">
+              {text.split("").map((letter, index) => (
+                <motion.h1
+                  key={index}
+                  initial={{
+                    y: -120,
+                    opacity: 0,
+                    scaleY: 1.4,
+                    scaleX: 0.8,
+                  }}
+                  whileInView={{
+                    y: 0,
+                    opacity: 1,
+                    scaleY: 1,
+                    scaleX: 1,
+                  }}
+                  viewport={{
+                    once: true,
+                    amount: 0.5,
+                  }}
+                  transition={{
+                    duration: 0.9,
+                    delay: index * 0.08,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className={`${anton.className} inline-block select-none text-center text-[80px] leading-none text-black sm:text-[120px] md:text-[180px] lg:text-[220px]`}
+                >
+                  {letter}
+                </motion.h1>
+              ))}
+            </div>
+          </motion.div>
 
-//                     <h3
-//                       className="
-//                         max-w-[500px]
-//                         text-4xl font-semibold
-//                         uppercase leading-[0.95]
-//                         tracking-tight
-//                         sm:text-6xl
-//                       "
-//                     >
-//                       {card.title}
-//                     </h3>
+          {/* =========================
+              CONTAINER 2
+          ========================= */}
 
-//                     <p
-//                       className="
-//                         mt-7 max-w-md
-//                         text-sm leading-7
-//                         text-white/40
-//                         sm:text-base
-//                       "
-//                     >
-//                       {card.description}
-//                     </p>
-//                   </div>
+          <motion.div
+            style={{
+              x: container2X,
+              scale: container2Scale,
+              opacity: container2Opacity,
+            }}
+            className="absolute inset-0 z-20 h-screen w-screen overflow-hidden p-7 sm:p-10"
+          >
 
-//                   {/* Bottom */}
-//                   <div className="relative">
+            {/* TOP */}
 
-//                     <div className="mb-6 flex flex-wrap gap-2">
-//                       {card.skills.map((skill) => (
-//                         <span
-//                           key={skill}
-//                           className="
-//                             rounded-full
-//                             border border-white/10
-//                             px-3 py-1.5
-//                             text-[10px]
-//                             uppercase
-//                             tracking-[0.15em]
-//                             text-white/40
-//                             transition-all duration-500
-//                             group-hover:border-[#d8bd76]/30
-//                             group-hover:text-white/70
-//                           "
-//                         >
-//                           {skill}
-//                         </span>
-//                       ))}
-//                     </div>
+            <div className="absolute left-7 right-7 top-7 flex items-center justify-between sm:left-10 sm:right-10 sm:top-10">
+              <h1 className="text-4xl font-black sm:text-5xl">
+                CONTAINER 02
+              </h1>
 
-//                     <div className="flex items-center justify-between border-t border-white/10 pt-5">
-//                       <span className="text-[10px] uppercase tracking-[0.3em] text-white/25">
-//                         Expertise
-//                       </span>
+              <span className="text-sm uppercase tracking-[0.3em] text-white/40">
+                Projects
+              </span>
+            </div>
 
-//                       <span
-//                         className="
-//                           text-xs tracking-widest
-//                           text-white/25
-//                           transition-all duration-500
-//                           group-hover:translate-x-2
-//                           group-hover:text-[#d8bd76]
-//                         "
-//                       >
-//                         →
-//                       </span>
-//                     </div>
+            {/* PROJECT CONTAINER */}
 
-//                   </div>
+            <div className="absolute left-0 right-0 top-1/2 h-[70vh] -translate-y-1/2 overflow-hidden">
+              <motion.div
+                style={{ y: projectsY }}
+                className="flex w-full flex-col items-center gap-[20vh]"
+              >
 
-//                 </article>
-//               );
-//             })}
-//           </motion.div>
+                {/* PROJECT 1 */}
 
-//           {/* Scroll indicator */}
-//           <div className="absolute bottom-8 left-6 flex items-center gap-4 text-[10px] uppercase tracking-[0.3em] text-white/25 sm:left-10 lg:left-16">
-//             <span>Scroll</span>
-//             <span className="h-px w-16 bg-white/10" />
-//             <span>Explore</span>
-//           </div>
+                <div className="flex h-[60vh] w-[85vw] max-w-[1200px] shrink-0 items-center justify-center rounded-[30px] border border-white/10 bg-white/[0.05] backdrop-blur-xl">
+                  <div className="text-center">
+                    <span className="text-sm uppercase tracking-[0.4em] text-white/40">
+                      01
+                    </span>
 
-//         </div>
-//       </section>
-//     </main>
-//   );
-// }
+                    <h2 className="mt-4 text-6xl font-black uppercase sm:text-8xl md:text-9xl">
+                      Project 1
+                    </h2>
+                  </div>
+                </div>
+
+                {/* PROJECT 2 */}
+
+                <div className="flex h-[60vh] w-[85vw] max-w-[1200px] shrink-0 items-center justify-center rounded-[30px] border border-white/10 bg-white/[0.05] backdrop-blur-xl">
+                  <div className="text-center">
+                    <span className="text-sm uppercase tracking-[0.4em] text-white/40">
+                      02
+                    </span>
+
+                    <h2 className="mt-4 text-6xl font-black uppercase sm:text-8xl md:text-9xl">
+                      Project 2
+                    </h2>
+                  </div>
+                </div>
+
+                {/* PROJECT 3 */}
+
+                <div className="flex h-[60vh] w-[85vw] max-w-[1200px] shrink-0 items-center justify-center rounded-[30px] border border-white/10 bg-white/[0.05] backdrop-blur-xl">
+                  <div className="text-center">
+                    <span className="text-sm uppercase tracking-[0.4em] text-white/40">
+                      03
+                    </span>
+
+                    <h2 className="mt-4 text-6xl font-black uppercase sm:text-8xl md:text-9xl">
+                      Project 3
+                    </h2>
+                  </div>
+                </div>
+
+                {/* PROJECT 4 */}
+
+                <div className="flex h-[60vh] w-[85vw] max-w-[1200px] shrink-0 items-center justify-center rounded-[30px] border border-white/10 bg-white/[0.05] backdrop-blur-xl">
+                  <div className="text-center">
+                    <span className="text-sm uppercase tracking-[0.4em] text-white/40">
+                      04
+                    </span>
+
+                    <h2 className="mt-4 text-6xl font-black uppercase sm:text-8xl md:text-9xl">
+                      Project 4
+                    </h2>
+                  </div>
+                </div>
+
+              </motion.div>
+            </div>
+
+            {/* BOTTOM */}
+
+            <div className="absolute bottom-7 left-7 right-7 flex justify-between text-sm uppercase tracking-[0.3em] text-white/40 sm:bottom-10 sm:left-10 sm:right-10">
+              <span>02</span>
+              <span>Projects</span>
+            </div>
+
+          </motion.div>
+        </div>
+      </section>
+    </main>
+  );
+}
+

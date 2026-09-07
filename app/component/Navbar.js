@@ -54,7 +54,7 @@ const Navbar = () => {
                 transition-all duration-500 ease-in-out
                 ${navVisible ? "translate-y-0" : "-translate-y-full"}
                 ${scrolled
-                    ? "bg-white/40 backdrop-blur-md"
+                    ? "bg-[#e29f9f] backdrop-blur-md"
                     : "bg-transparent"
                 }
             `}
@@ -73,42 +73,45 @@ const Navbar = () => {
                 <nav className="hidden md:flex items-center gap-6 lg:gap-8">
                     <a
                         href="#home"
-                        className="text-xs font-extralight tracking-[0.15em] uppercase transition-opacity duration-300 hover:text-[#d44141]"
+                        className="text-xs font-extralight tracking-[0.15em] uppercase transition-opacity duration-300 hover:text-[#aa0000]"
                     >
                         Home
                     </a>
                     <a
                         href="#about"
-                        className="text-xs font-extralight tracking-[0.15em] uppercase transition-opacity duration-300 hover:text-[#d44141]"
+                        className="text-xs font-extralight tracking-[0.15em] uppercase transition-opacity duration-300 hover:text-[#aa0000]"
                     >
                         About
                     </a>
                     <a
                         href="#expertise"
-                        className="text-xs font-extralight tracking-[0.15em] uppercase transition-opacity duration-300 hover:text-[#d44141]"
+                        className="text-xs font-extralight tracking-[0.15em] uppercase transition-opacity duration-300 hover:text-[#aa0000]"
                     >
                         Expertise
                     </a>
                     <a
                         href="#projects"
-                        className="text-xs font-extralight tracking-[0.15em] uppercase transition-opacity duration-300 hover:text-[#d44141]"
+                        className="text-xs font-extralight tracking-[0.15em] uppercase transition-opacity duration-300 hover:text-[#aa0000]"
                     >
                         Projects
                     </a>
                     <a
                         href="#contact"
-                        className="text-xs font-extralight tracking-[0.15em] uppercase transition-opacity duration-300 hover:text-[#d44141]"
+                        className="text-xs font-extralight tracking-[0.15em] uppercase transition-opacity duration-300 hover:text-[#aa0000]"
                     >
                         Contact
                     </a>
                 </nav>
 
                 {/* Right Side */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 hover:text-[#aa0000]">
 
-                    <button className="hidden cursor-pointer sm:flex items-center justify-center px-4 py-1 text-[11px] font-semibold tracking-[0.15em] uppercase border border-black/30 transition-all duration-300 hover:bg-black hover:text-[#fef6d5]">
-                        Login
-                    </button>
+                    <div className=" flex items-center gap-6">
+                        <button className="group flex items-center gap-1 border border-black/20 px-3 py-[6px] text-xs uppercase tracking-[0.07em] transition hover:border-[#aa0000]">
+                            Let's talk
+                            <span className="font-bold transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"> ↗</span> 
+                        </button>
+                    </div>
 
                     {/* Mobile Menu */}
                     <button
@@ -138,7 +141,7 @@ const Navbar = () => {
                         onClick={closeMenu}
                         className="block py-3 text-sm font-medium tracking-[0.15em] uppercase"
                     >
-                        Work
+                        Home
                     </a>
 
                     <a
@@ -150,11 +153,19 @@ const Navbar = () => {
                     </a>
 
                     <a
-                        href="#gallery"
+                        href="#expertise"
                         onClick={closeMenu}
                         className="block py-3 text-sm font-medium tracking-[0.15em] uppercase"
                     >
-                        Journal
+                        Expertise
+                    </a>
+
+                    <a
+                        href="#projects"
+                        onClick={closeMenu}
+                        className="block py-3 text-sm font-medium tracking-[0.15em] uppercase"
+                    >
+                        Projects
                     </a>
 
                     <a

@@ -32,7 +32,7 @@ body {
   html,
   body,
   * {
-    /* cursor: none !important; */
+    cursor: none !important;
   }
 
   /* =========================
@@ -52,7 +52,7 @@ body {
 
     border-radius: 50%;
 
-    background: white;
+    background: rgb(0, 0, 0);
 
     pointer-events: none;
 
@@ -60,7 +60,7 @@ body {
 
     box-shadow:
       0 0 8px rgba(255,255,255,0.9),
-      0 0 25px rgba(139,92,246,0.8);
+      0 0 25px rgba(246, 92, 92, 0.8);
 
     transition:
       width 0.2s ease,
@@ -97,13 +97,13 @@ body {
 
     overflow: hidden;
 
-    border: 1px solid rgba(255,255,255,0.35);
+    border: 1px solid rgba(0, 0, 0, 0.35);
 
     background:
       radial-gradient(
         circle at 30% 30%,
         rgba(255,255,255,0.12),
-        rgba(139,92,246,0.08),
+        rgba(246, 92, 92, 0.08),
         rgba(0,0,0,0)
       );
 
@@ -111,7 +111,7 @@ body {
     -webkit-backdrop-filter: blur(8px);
 
     box-shadow:
-      0 0 20px rgba(139,92,246,0.12);
+      0 0 20px rgba(246, 92, 92, 0.12);
 
     transition:
       width 0.35s cubic-bezier(.22,1,.36,1),
@@ -132,19 +132,19 @@ body {
     height: 68px;
 
     border-color:
-      rgba(167,139,250,0.7);
+      rgba(253, 72, 72, 0.7);
 
     background:
       radial-gradient(
         circle,
-        rgba(139,92,246,0.18),
-        rgba(139,92,246,0.05),
+        rgba(246, 92, 92, 0.18),
+        rgba(246, 92, 92, 0.05),
         transparent
       );
 
     box-shadow:
-      0 0 25px rgba(139,92,246,0.25),
-      0 0 60px rgba(139,92,246,0.12);
+      0 0 25px rgba(246, 92, 92, 0.25),
+      0 0 60px rgba(246, 92, 92, 0.12);
   }
 
 
