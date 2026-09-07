@@ -1,11 +1,11 @@
 "use client";
 
 import ScrollReveal from "../components/ScrollReveal";
-import Education from "../components/Education";
+
 
 const Skills = () => {
   return (
-    <main className="overflow-x-hidden bg-black">
+    <main className="min-h-screen w-full overflow-x-clip bg-[#0a0a0a] text-white">
 
       {/* UP */}
       <ScrollReveal direction="up">
@@ -95,7 +95,7 @@ const Skills = () => {
         </section>
       </ScrollReveal>
 
-      <Education />
+    
 
     </main>
   );

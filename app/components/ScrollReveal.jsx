@@ -15,18 +15,36 @@ const ScrollReveal = ({
     once: true,
     amount: 0.25,
   });
-
+  
   const animationType = type || direction;
-
+  
   const animations = {
     up: {
-      hidden: {
+    hidden: {
         opacity: 0,
         y: 120,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+            delay: 1,
+            duration: 0.5,
+        },
+      },
+    },
+    
+    scale: {
+      hidden: {
+        opacity: 0,
+        scale: 0.5,
       },
       visible: {
         opacity: 1,
-        y: 0,
+        scale: 1,
+        transition: {
+             duration: 0.5,
+        },
       },
     },
 
@@ -63,16 +81,6 @@ const ScrollReveal = ({
       },
     },
 
-    scale: {
-      hidden: {
-        opacity: 0,
-        scale: 0.5,
-      },
-      visible: {
-        opacity: 1,
-        scale: 1,
-      },
-    },
 
     blur: {
       hidden: {

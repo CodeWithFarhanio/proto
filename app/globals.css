@@ -14,15 +14,18 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #000000;
     --foreground: #ededed;
   }
 }
 
 body {
+  
+
+
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Anton", Arial, Helvetica, sans-serif;
 }@media (pointer: fine) {
 
   /* Hide browser cursor */
@@ -216,19 +219,23 @@ body {
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 9px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #af67ee66;
-  border-radius: 999px;
-  border: 1px solid rgba(170, 103, 238, 0.2);
+  background: #ee6767ad;
+ 
+  border: 1px solid rgba(238, 103, 103, 0.2);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #b667eeb3;
+  background: #ea2f2fb3;
 }
+
+
+
+/* EXPERTISE SESSION DESIGN */

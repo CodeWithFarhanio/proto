@@ -1,27 +1,174 @@
-import React from 'react'
-import { Search } from "lucide-react";
+
+"use client";
+
+import React, { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+    const [navVisible, setNavVisible] = useState(true);
+
+    useEffect(() => {
+        let scrollTimer;
+
+        const handleScroll = () => {
+            const scrollY = window.scrollY;
+
+            setScrolled(scrollY > 20);
+
+            // Always show navbar when at the top
+            if (scrollY <= 20) {
+                setNavVisible(true);
+                clearTimeout(scrollTimer);
+                return;
+            }
+
+            // Show navbar while scrolling
+            setNavVisible(true);
+
+            // Hide after scrolling stops
+            clearTimeout(scrollTimer);
+
+            scrollTimer = setTimeout(() => {
+                // Don't hide if user has returned to the top
+                if (window.scrollY > 20) {
+                    setNavVisible(false);
+                }
+            }, 1500);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            clearTimeout(scrollTimer);
+        };
+    }, []);
+
+    const closeMenu = () => setMenuOpen(false);
+
     return (
-        <>
-            <header className="sticky font-semibold top-0 z-50 flex items-center justify-between px-5 sm:px-8 md:px-16 py-6 md:py-8 text-black">
+        <header
+            className={`fixed top-0 left-0 right-0 z-50 text-black
+                transition-all duration-500 ease-in-out
+                ${navVisible ? "translate-y-0" : "-translate-y-full"}
+                ${scrolled
+                    ? "bg-white/40 backdrop-blur-md"
+                    : "bg-transparent"
+                }
+            `}
+        >
+            <div className="flex items-center justify-between px-5 py-5 sm:px-8 md:px-12 lg:px-16 md:py-4">
+
                 {/* Logo */}
-                <div className="flex items-center gap-3 shrink-0">
-                    <span className="hidden font-semibold sm:block text-xs md:text-sm tracking-widest font-light text-black">Proto</span>
-                </div>
+                <a
+                    href="#home"
+                    className="text-lg uppercase"
+                >
+                    𝒫𝓇𝑜𝓉𝑜
+                </a>
 
-                {/* Desktop Navigation */} 
-                <nav className="hidden md:flex font-semibold items-center gap-6 lg:gap-8 text-xs tracking-wider text-black uppercase">
-                    <a href="#home" className="transition-colors hover:text-[#d28500]">Work</a>
-                    <a href="#about" className="transition-colors hover:text-[#d28500]">About</a>
-                    <a href="#gallery" className="transition-colors hover:text-[#d28500]">Journal</a>
-                    <a href="#community" className="transition-colors hover:text-[#d28500]">contact</a>
+                {/* Desktop Navigation */}
+                <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+                    <a
+                        href="#home"
+                        className="text-xs font-extralight tracking-[0.15em] uppercase transition-opacity duration-300 hover:text-[#d44141]"
+                    >
+                        Home
+                    </a>
+                    <a
+                        href="#about"
+                        className="text-xs font-extralight tracking-[0.15em] uppercase transition-opacity duration-300 hover:text-[#d44141]"
+                    >
+                        About
+                    </a>
+                    <a
+                        href="#expertise"
+                        className="text-xs font-extralight tracking-[0.15em] uppercase transition-opacity duration-300 hover:text-[#d44141]"
+                    >
+                        Expertise
+                    </a>
+                    <a
+                        href="#projects"
+                        className="text-xs font-extralight tracking-[0.15em] uppercase transition-opacity duration-300 hover:text-[#d44141]"
+                    >
+                        Projects
+                    </a>
+                    <a
+                        href="#contact"
+                        className="text-xs font-extralight tracking-[0.15em] uppercase transition-opacity duration-300 hover:text-[#d44141]"
+                    >
+                        Contact
+                    </a>
                 </nav>
-{/* now make a button */}
-                <button className="hidden md:flex items-center gap-2 px-4 py-2 text-xs tracking-wider text-black uppercase border border-black/30 bg-black/10 transition-colors hover:bg-black/20">Login</button>
-            </header>
-        </>
-    )
-}
 
-export default Navbar
+                {/* Right Side */}
+                <div className="flex items-center gap-3">
+
+                    <button className="hidden cursor-pointer sm:flex items-center justify-center px-4 py-1 text-[11px] font-semibold tracking-[0.15em] uppercase border border-black/30 transition-all duration-300 hover:bg-black hover:text-[#fef6d5]">
+                        Login
+                    </button>
+
+                    {/* Mobile Menu */}
+                    <button
+                        onClick={() => setMenuOpen(!menuOpen)}
+                        aria-label="Toggle menu"
+                        className="md:hidden flex items-center justify-center w-10 h-10 border border-black/20 transition-all duration-300 hover:bg-black hover:text-[#fef6d5]"
+                    >
+                        {menuOpen ? (
+                            <X size={18} strokeWidth={1.8} />
+                        ) : (
+                            <Menu size={18} strokeWidth={1.8} />
+                        )}
+                    </button>
+                </div>
+            </div>
+
+            {/* Mobile Navigation */}
+            <div
+                className={`md:hidden overflow-hidden transition-all duration-500 ease-out ${menuOpen
+                    ? "max-h-96 opacity-100"
+                    : "max-h-0 opacity-0"
+                    }`}
+            >
+                <nav className="mx-5 sm:mx-8 border-t border-black/10 py-6">
+                    <a
+                        href="#home"
+                        onClick={closeMenu}
+                        className="block py-3 text-sm font-medium tracking-[0.15em] uppercase"
+                    >
+                        Work
+                    </a>
+
+                    <a
+                        href="#about"
+                        onClick={closeMenu}
+                        className="block py-3 text-sm font-medium tracking-[0.15em] uppercase"
+                    >
+                        About
+                    </a>
+
+                    <a
+                        href="#gallery"
+                        onClick={closeMenu}
+                        className="block py-3 text-sm font-medium tracking-[0.15em] uppercase"
+                    >
+                        Journal
+                    </a>
+
+                    <a
+                        href="#contact"
+                        onClick={closeMenu}
+                        className="block py-3 text-sm font-medium tracking-[0.15em] uppercase"
+                    >
+                        Contact
+                    </a>
+                </nav>
+            </div>
+        </header>
+    );
+};
+
+export default Navbar;
+
