@@ -44,10 +44,11 @@ export default function Hero() {
     return (
         <>
             {/* BLACK CURTAIN */}
+            
             {/* ================= INTRO OPENING ================= */}
-            {/* <div className="fixed inset-0 z-[99999] pointer-events-none">
+            <div className="fixed inset-0 z-[99999] pointer-events-none">
 
-                LEFT DOOR
+                {/* LEFT DOOR */}
 
                 <motion.div
                     initial={{ x: "0%" }}
@@ -60,7 +61,7 @@ export default function Hero() {
                     className="absolute inset-y-0 left-0 w-1/2 bg-[#d38383]"
                 />
 
-                RIGHT DOOR
+                {/* RIGHT DOOR */}
                 <motion.div
                     initial={{ x: "0%" }}
                     animate={{ x: "100%" }}
@@ -90,7 +91,7 @@ export default function Hero() {
                         Proto
                     </span>
 
-                    LODING BAR
+                    {/* LODING BAR */}
                     <div className="mt-5 h-[2px] w-24 overflow-hidden bg-white">
                         <motion.div
                             initial={{ width: "0%" }}
@@ -106,13 +107,14 @@ export default function Hero() {
   
                 </motion.div>
 
-            </div>*/}
-            <div className="relative h-[70vh] md:min-h-screen overflow-hidden">
+            </div>
+            <section id="home" className="relative h-[70vh] md:min-h-screen overflow-hidden">
 
                 {/* BACKGROUND */}
                
 
                 {/* CONTENT */}
+                
                 <div className="absolute inset-0 z-10 overflow-hidden">
 
                     <div className="absolute inset-0 flex flex-col items-center justify-center">
@@ -178,7 +180,7 @@ export default function Hero() {
 
                 </div>
 
-            </div>
+            </section>
         </>
     );
 }

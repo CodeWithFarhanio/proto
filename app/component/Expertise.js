@@ -4,37 +4,49 @@ import { motion } from "framer-motion";
 
 const skills = [
   {
-    number: "01",
-    title: "Creative Development",
-    description:
-      "Building fast, responsive and scalable interfaces with modern frontend technologies.",
-    meta: "HTML • CSS • JAVASCRIPT",
-    icon: "</>",
-  },
-  {
-    number: "02",
-    title: "Motion & Interaction",
-    description:
-      "Turning static interfaces into expressive experiences with meaningful motion and interactions.",
-    meta: "FRAMER MOTION • GSAP",
-    icon: "✦",
-  },
-  {
-    number: "03",
-    title: "UI / UX Design",
-    description:
-      "Creating clean visual systems with strong hierarchy, usability and a distinctive personality.",
-    meta: "UI DESIGN • UX • PROTOTYPING",
-    icon: "◉",
-  },
-  {
-    number: "04",
-    title: "Modern Web Apps",
-    description:
-      "Developing interactive applications with component-based architecture and dynamic data.",
-    meta: "NEXT.JS • REACT • NODE",
-    icon: "⌘",
-  },
+  number: "01",
+  title: "Frontend Development",
+  description:
+    "Building fast, responsive and accessible interfaces with clean structure, modern styling and interactive components.",
+  meta: "HTML • CSS • JAVASCRIPT",
+  icon: "</>",
+},
+
+{
+  number: "02",
+  title: "Motion & Interaction",
+  description:
+    "Creating engaging digital experiences through smooth animations, transitions and purposeful micro-interactions.",
+  meta: "FRAMER MOTION • GSAP",
+  icon: "✦",
+},
+
+{
+  number: "03",
+  title: "UI / UX Design",
+  description:
+    "Designing intuitive interfaces with strong visual hierarchy, usability and consistent design systems.",
+  meta: "UI DESIGN • UX • PROTOTYPING",
+  icon: "◉",
+},
+
+{
+  number: "04",
+  title: "Modern Web Apps",
+  description:
+    "Developing scalable web applications with reusable components, dynamic interfaces and seamless user experiences.",
+  meta: "REACT • NEXT.JS • JAVASCRIPT",
+  icon: "⌘",
+},
+
+{
+  number: "05",
+  title: "Backend Development",
+  description:
+    "Building reliable server-side systems with APIs, authentication, database integration and efficient data management.",
+  meta: "NODE.JS • EXPRESS • MONGODB",
+  icon: "⚙",
+},
 ];
 
 
@@ -60,7 +72,9 @@ export default function Expertise() {
       <div className="relative z-10 mx-auto grid w-full max-w-[1450px] grid-cols-[minmax(350px,.85fr)_minmax(500px,1.15fr)] gap-[100px] max-[1100px]:grid-cols-1 max-[1100px]:gap-[90px]">
 
         {/* LEFT */}
-        <section className="relative min-w-0">
+        <section
+        id="expertise"
+        className="relative min-w-0">
 
           {/* HEADING */}
           <motion.h1
@@ -68,7 +82,7 @@ export default function Expertise() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="mb-[60px] flex flex-col font-sans text-[clamp(65px,7vw,110px)] font-extrabold leading-[.82] tracking-[-6px] max-[650px]:mb-[40px] max-[650px]:text-[clamp(58px,17vw,90px)] max-[650px]:tracking-[-4px]"
+            className="mb-[60px] flex flex-col font-sans text-[clamp(65px,7vw,110px)] font-extrabold leading-[.82] tracking-[-6px] max-[650px]:mb-[40px] max-[650px]:text-[clamp(58px,17vw,40px)] max-[650px]:tracking-[-4px]"
           >
             <span className="text-[#aa0000]">MY</span>
             <strong className="text-black/90">EXPERTISE</strong>
@@ -101,10 +115,10 @@ export default function Expertise() {
 
           {/* TECHNOLOGY TAGS */}
           <div className="flex flex-wrap gap-[7px]">
-            {["HTML", "CSS", "JAVASCRIPT", "GSAP", "REACT"].map((item) => (
+            {["HTML", "CSS", "JAVASCRIPT", "TAILWIND CSS", "REACT", "NODEJS", "EXPRESSJS", "MONGODB", "NEXTJS",  ].map((item) => (
               <span
                 key={item}
-                className="border border-[#222] bg-white/[0.015] px-3 py-2 font-sans text-[8px] font-semibold tracking-[1px] text-black/90 transition-all duration-300 hover:border-[#444] hover:bg-white/[0.04] hover:text-[#aa0000]"
+                className="border border-[#222] bg-white/[0.015] px-2 py-2 font-sans text-[8px] font-semibold tracking-[1px] text-black/90 transition-all duration-300 hover:border-[#444] hover:bg-white/[0.04] hover:text-[#aa0000]"
               >
                 {item}
               </span>

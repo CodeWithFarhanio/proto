@@ -3,6 +3,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -50,7 +51,7 @@ const Navbar = () => {
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 text-black
+            className={`fixed top-0 left-0 right-0 z-50 text-black/70
                 transition-all duration-500 ease-in-out
                 ${navVisible ? "translate-y-0" : "-translate-y-full"}
                 ${scrolled
@@ -59,55 +60,55 @@ const Navbar = () => {
                 }
             `}
         >
-            <div className="flex items-center justify-between px-5 py-5 sm:px-8 md:px-12 lg:px-16 md:py-4">
+            <div className="flex items-center justify-between font-sans px-5 py-5 sm:px-8 md:px-12 lg:px-16 md:py-4">
 
                 {/* Logo */}
-                <a
+                <Link
                     href="#home"
-                    className="text-lg uppercase"
+                    className="text-lg  text-2xl text-black uppercase"
                 >
                     𝒫𝓇𝑜𝓉𝑜
-                </a>
+                </Link>
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex items-center gap-6 lg:gap-8">
-                    <a
+                    <Link
                         href="#home"
-                        className="text-xs font-extralight tracking-[0.15em] uppercase transition-opacity duration-300 hover:text-[#aa0000]"
+                        className="text-xs font-bold tracking-[0.15em] uppercase transition-opacity duration-300 hover:text-[#aa0000]"
                     >
                         Home
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                         href="#about"
-                        className="text-xs font-extralight tracking-[0.15em] uppercase transition-opacity duration-300 hover:text-[#aa0000]"
+                        className="text-xs font-bold tracking-[0.15em] uppercase transition-opacity duration-300 hover:text-[#aa0000]"
                     >
                         About
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                         href="#expertise"
-                        className="text-xs font-extralight tracking-[0.15em] uppercase transition-opacity duration-300 hover:text-[#aa0000]"
+                        className="text-xs font-bold tracking-[0.15em] uppercase transition-opacity duration-300 hover:text-[#aa0000]"
                     >
                         Expertise
-                    </a>
-                    <a
-                        href="#projects"
-                        className="text-xs font-extralight tracking-[0.15em] uppercase transition-opacity duration-300 hover:text-[#aa0000]"
+                    </Link>
+                    <Link
+                        href="#project"
+                        className="text-xs font-bold tracking-[0.15em] uppercase transition-opacity duration-300 hover:text-[#aa0000]"
                     >
                         Projects
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                         href="#contact"
-                        className="text-xs font-extralight tracking-[0.15em] uppercase transition-opacity duration-300 hover:text-[#aa0000]"
+                        className="text-xs font-bold tracking-[0.15em] uppercase transition-opacity duration-300 hover:text-[#aa0000]"
                     >
                         Contact
-                    </a>
+                    </Link>
                 </nav>
 
                 {/* Right Side */}
                 <div className="flex items-center gap-3 hover:text-[#aa0000]">
 
                     <div className=" flex items-center gap-6">
-                        <button className="group flex items-center gap-1 border border-black/20 px-3 py-[6px] text-xs uppercase tracking-[0.07em] transition hover:border-[#aa0000]">
+                        <button className="group flex items-center gap-1 border border-black/70 text-black/90 hover:text-[#aa0000] px-3 py-[6px] text-xs uppercase tracking-[0.07em] transition hover:border-[#aa0000]">
                             Let's talk
                             <span className="font-bold transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"> ↗</span> 
                         </button>
@@ -117,7 +118,7 @@ const Navbar = () => {
                     <button
                         onClick={() => setMenuOpen(!menuOpen)}
                         aria-label="Toggle menu"
-                        className="md:hidden flex items-center justify-center w-10 h-10 border border-black/20 transition-all duration-300 hover:bg-black hover:text-[#fef6d5]"
+                        className="md:hidden flex items-center justify-center w-7 h-7 border border-black/20 transition-all duration-300 hover:bg-black hover:text-[#fef6d5]"
                     >
                         {menuOpen ? (
                             <X size={18} strokeWidth={1.8} />
@@ -136,45 +137,45 @@ const Navbar = () => {
                     }`}
             >
                 <nav className="mx-5 sm:mx-8 border-t border-black/10 py-6">
-                    <a
+                    <Link
                         href="#home"
                         onClick={closeMenu}
                         className="block py-3 text-sm font-medium tracking-[0.15em] uppercase"
                     >
                         Home
-                    </a>
+                    </Link>
 
-                    <a
+                    <Link
                         href="#about"
                         onClick={closeMenu}
                         className="block py-3 text-sm font-medium tracking-[0.15em] uppercase"
                     >
                         About
-                    </a>
+                    </Link>
 
-                    <a
+                    <Link
                         href="#expertise"
                         onClick={closeMenu}
                         className="block py-3 text-sm font-medium tracking-[0.15em] uppercase"
                     >
                         Expertise
-                    </a>
+                    </Link>
 
-                    <a
-                        href="#projects"
+                    <Link
+                        href="#project"
                         onClick={closeMenu}
                         className="block py-3 text-sm font-medium tracking-[0.15em] uppercase"
                     >
                         Projects
-                    </a>
+                    </Link>
 
-                    <a
+                    <Link
                         href="#contact"
                         onClick={closeMenu}
                         className="block py-3 text-sm font-medium tracking-[0.15em] uppercase"
                     >
                         Contact
-                    </a>
+                    </Link>
                 </nav>
             </div>
         </header>
